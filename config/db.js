@@ -13,6 +13,7 @@ const connectDB = async () => {
     catch (err) {
         console.log(err);
     }
+
 }
 
 module.exports = connectDB;
