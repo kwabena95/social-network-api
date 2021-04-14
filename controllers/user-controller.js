@@ -4,7 +4,11 @@ const userController = {
     // get all users
     async getAllUsers(req, res) {
         try {
-            const dbUserdata = await User.find({})
+            const dbUserdata = await User.find({}).populate({
+                path: 'thoughts',
+                select: '-__v'
+            })
+                .select('-__v');
             await res.json(dbUserdata);
         }
         catch (err) {
@@ -19,7 +23,11 @@ const userController = {
     async getUserById({ params }, res) {
         try {
 
-            const dbUserdata = await User.findOne({ _id: params.id })
+            const dbUserdata = await User.findOne({ _id: params.id }).populate({
+                path: 'thoughts',
+                select: '-__v'
+            })
+                .select('-__v');
             const user = await res.json(dbUserdata);
             if (!user) {
                 res.status(404).json({ message: `No user was found with the id ${{ _id: param.id }}` });
