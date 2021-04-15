@@ -9,7 +9,7 @@ const userController = {
                 select: '-__v'
             })
                 .select('-__v');
-            await res.json(dbUserdata);
+            res.json(dbUserdata);
         }
         catch (err) {
             console.log(err);
@@ -28,9 +28,10 @@ const userController = {
                 select: '-__v'
             })
                 .select('-__v');
-            const user = await res.json(dbUserdata);
+            const user = res.json(dbUserdata);
+            console.log(dbUserdata)
             if (!user) {
-                res.status(404).json({ message: `No user was found with the id ${{ _id: param.id }}` });
+                res.status(404).json({ message: `No user was found with that id` });
                 return;
             }
         }
@@ -46,7 +47,7 @@ const userController = {
     async createUser({ body }, res) {
         try {
             const dbUserdata = await User.create(body);
-            await res.json(dbUserdata);
+            res.json(dbUserdata);
 
         }
         catch (err) {
@@ -59,10 +60,10 @@ const userController = {
     async updateUser({ params, body }, res) {
         try {
             const dbUserdata = await User.findByIdAndUpdate({ _id: params.id }, body, { new: true, runValidators: true });
-            const user = await res.json(dbUserdata);
+            const user = res.json(dbUserdata);
 
             if (!user) {
-                res.status(404).json({ message: `No user was found with the id ${{ _id: param.id }}` });
+                res.status(404).json({ message: `No user was found with that id` });
                 return;
             }
         }
@@ -76,10 +77,10 @@ const userController = {
     async deleteUser({ params }, res) {
         try {
             const dbUserdata = await User.findOneAndDelete({ _id: params.id });
-            const user = await res.json(dbUserdata);
+            const user = res.json(dbUserdata);
 
             if (!user) {
-                res.status(404).json({ message: `No user was found with the id ${{ _id: param.id }}` });
+                res.status(404).json({ message: `No user was found with that id` });
                 return;
             }
         }

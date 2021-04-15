@@ -15,5 +15,6 @@ app.use(require('./router/index'));
 
 // Use this to log mongo queries being executed!
 mongoose.set('debug', true);
+mongoose.set('useCreateIndex', true);
 
 app.listen(PORT, console.log(`Running on ${PORT}`));
