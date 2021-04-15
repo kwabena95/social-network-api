@@ -9,10 +9,10 @@ router.route('/').get(getAllThought);
 router.route('/:Id')
     .get(getThoughtById)
     .post(addThought)
-
-//  /api/thoughts/<userId>/thoughtId
-router.route('/:userId/:thoughtId')
     .put(updateThought)
+//  /api/thoughts/<userId>/thoughtId
+router.route('/:thoughtId')
+
     .delete(deleteThought);
 
 
