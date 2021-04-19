@@ -6,14 +6,15 @@ const { getAllThought, addThought, getThoughtById, updateThought, deleteThought 
 router.route('/').get(getAllThought);
 
 // /api/thoughts/<Id>
-router.route('/:Id')
-    .get(getThoughtById)
-    .post(addThought)
-    .put(updateThought)
-//  /api/thoughts/<userId>/thoughtId
-router.route('/:thoughtId')
+router.route('/:thoughtId').get(getThoughtById)
 
-    .delete(deleteThought);
+router.route('/:userId').post(addThought)
+
+//  /api/thoughts/thoughtId
+router.route('/:thoughtId').put(updateThought)
+
+//  /api/thoughts/thoughtId
+router.route('/:thoughtId').delete(deleteThought);
 
 
 module.exports = router;
