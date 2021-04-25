@@ -1,3 +1,4 @@
+const { db } = require('../models/User');
 const User = require('../models/User');
 
 const userController = {
@@ -47,6 +48,7 @@ const userController = {
     async createUser({ body }, res) {
         try {
             const dbUserdata = await User.create(body);
+            console.log(dbUserdata);
             res.json(dbUserdata);
 
         }
@@ -87,6 +89,25 @@ const userController = {
         catch (err) {
             res.status(404).json(err);
         }
+    },
+
+    async deleteFriend({ params }, res) {
+        try {
+            const dbUserdata = await User.findOneAndUpdate(
+                { _id: params.userId },
+                { $pull: { friends: { friendId: params.friendId } } },
+                { new: true });
+            const user = res.json(dbUserdata);
+
+            if (!user) {
+                res.status(404).json({ message: `No user was found with that id` });
+                return;
+            }
+        }
+        catch (err) {
+            res.status(404).json(err);
+        }
+
     }
 }
 
