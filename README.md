@@ -20,7 +20,7 @@
   * You have to clone the repository onto your local machine. Open your terminal and run `npm i` to install dependencies.
     
   ## Usage
-  ![./image/Screenshot.png](./image/Screenshot.png)
+  ![./image/pic.png](./image/pic.png)
 
   Run `npm run start` in the terminal. if succesful, your terminal should look like this screenshot.
   For a video walk-through, please click on these links
