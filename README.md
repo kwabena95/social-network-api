@@ -23,7 +23,10 @@
   ![./image/Screenshot.png](./image/Screenshot.png)
 
   Run `npm run start` in the terminal. if succesful, your terminal should look like this screenshot.
-  For a video walk-through, please click on the link [https://youtu.be/LmZcIdd0ygA](https://youtu.be/LmZcIdd0ygA)
+  For a video walk-through, please click on these links
+  * Part 1: [https://youtu.be/xr-2U0am4Z8](https://youtu.be/xr-2U0am4Z8)
+  * Part 2: [https://youtu.be/gIT0JHYMbvc](https://youtu.be/gIT0JHYMbvc)
+  * Part 3: [https://youtu.be/MIhFt4AZcCU](https://youtu.be/MIhFt4AZcCU)
   
 
   ## License
