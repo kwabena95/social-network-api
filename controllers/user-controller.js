@@ -92,10 +92,11 @@ const userController = {
     },
 
     async deleteFriend({ params }, res) {
+        console.log(params)
         try {
-            const dbUserdata = await User.findOneAndDelete(
+            const dbUserdata = await User.findOneAndUpdate(
                 { _id: params.userId },
-                { $pull: { friends: { friendId: params.friendId } } },
+                { $pull: { friends: params.friendId } },
                 { new: true });
             const user = res.json(dbUserdata);
 
