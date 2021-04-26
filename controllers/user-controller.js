@@ -93,7 +93,7 @@ const userController = {
 
     async deleteFriend({ params }, res) {
         try {
-            const dbUserdata = await User.findOneAndUpdate(
+            const dbUserdata = await User.findOneAndDelete(
                 { _id: params.userId },
                 { $pull: { friends: { friendId: params.friendId } } },
                 { new: true });
